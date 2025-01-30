@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     
     public float PlayerSpeed;
     public bool PlayerShouldBeMoving;
+    public bool CanMove;
     public Rigidbody2D PlayerRB;
     [SerializeField] private float moveDirection;
     [SerializeField] private float inputHorizontal;
@@ -57,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
         quit.started -= Quit;
     }
 
-   
-
     //private void Handle_ToMenuPerformed(InputAction.CallbackContext context)
     //{
     //    SceneManager.LoadScene("IntroCutscene");
@@ -66,10 +65,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Handle_MoveStarted(InputAction.CallbackContext obj)
     {
-                //Can only be active if dash isn't occuring
+        if (CanMove)
+        {
+            // Can only be active if dash isn't occuring
                 //Turns on the movement command
                 PlayerShouldBeMoving = true;
-                _moving = true;
+            _moving = true;
+        }
+                
     }
     private void Handle_MoveCanceled(InputAction.CallbackContext obj)
     {//Can only be active if dash isn't occuring
@@ -80,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (PlayerShouldBeMoving == true)
+        if (PlayerShouldBeMoving == true && CanMove == true)
         {
                 //print("PlayerRB Should Be Moving");
                 //Makes the player able to move, and turns on the moving animation   
@@ -89,31 +92,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
-    public void Grounded()
-    {
-        InAir = false;
-    }
-
-    public void NotGrounded()
-    {
-        InAir = true;
-    }
-
     // Update is called once per frame
     public void Update()
     {
-        if (_velocityY < -2)
+        if (_velocityY < -1)
         {
-            
+            InAir = true;
                 _animator.SetBool("Falling", true);
             
 
         }
 
-        if (_velocityY >= -2)
+        if (_velocityY >= -1)
         {
-
+            InAir = false;
             _animator.SetBool("Falling", false);
             //_animator.SetBool("Jumping", false);
         }

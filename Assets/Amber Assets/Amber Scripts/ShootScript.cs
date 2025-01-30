@@ -15,6 +15,11 @@ public class ShootScript : MonoBehaviour
     [SerializeField] private float _maxShotCooldown;
     [SerializeField] private float _shotCooldown;
 
+    [SerializeField] private int _maxShots;
+    [SerializeField] private int _currentShots;
+    [SerializeField] private float _maxReloadCooldown;
+    [SerializeField] private float _reloadCooldown;
+
     private bool shooting;
 
     private Vector2 direction;
@@ -66,10 +71,11 @@ public class ShootScript : MonoBehaviour
     {
         if (shooting)
         {
-            if (canShoot)
+            if (canShoot && _currentShots > 0)
             {
                 canShoot = false;
                 ShootBullet();
+                _currentShots -= 1;
             }
         }
         if (canShoot == false)
@@ -80,6 +86,16 @@ public class ShootScript : MonoBehaviour
                 canShoot = true;
                 _shotCooldown = _maxShotCooldown;
             }
+        }
+        if (_currentShots < _maxShots)
+        {
+            _reloadCooldown -= Time.deltaTime;
+            if (_reloadCooldown <= 0)
+            {
+                _reloadCooldown = _maxReloadCooldown;
+                _currentShots += 1;
+            }
+
         }
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

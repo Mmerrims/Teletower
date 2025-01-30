@@ -20,9 +20,14 @@ public class ShootScript : MonoBehaviour
     [SerializeField] private float _maxReloadCooldown;
     [SerializeField] private float _reloadCooldown;
 
+    [SerializeField] private GameManager _gameManager;
+
     private bool shooting;
 
     private Vector2 direction;
+
+    public int CurrentShots { get => _currentShots; set => _currentShots = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +81,7 @@ public class ShootScript : MonoBehaviour
                 canShoot = false;
                 ShootBullet();
                 _currentShots -= 1;
+                _gameManager.UpdateText();
             }
         }
         if (canShoot == false)
@@ -94,6 +100,7 @@ public class ShootScript : MonoBehaviour
             {
                 _reloadCooldown = _maxReloadCooldown;
                 _currentShots += 1;
+                _gameManager.UpdateText();
             }
 
         }

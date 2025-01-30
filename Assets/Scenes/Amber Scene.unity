@@ -768,8 +768,12 @@ MonoBehaviour:
   _bulletSpawn: {fileID: 1830972989}
   _bulletSpeed: 1000
   MPI: {fileID: 395214389}
-  _maxShotCooldown: 1
-  _shotCooldown: 1
+  _maxShotCooldown: 0.5
+  _shotCooldown: 0.5
+  _maxShots: 3
+  _currentShots: 3
+  _maxReloadCooldown: 3
+  _reloadCooldown: 3
 --- !u!1 &407949586
 GameObject:
   m_ObjectHideFlags: 0

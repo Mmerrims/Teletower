@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         MPI.currentActionMap.Enable();
         move.started += Handle_MoveStarted;
         move.canceled += Handle_MoveCanceled;
+        restart.started += Restart;
+        quit.started += Quit;
     }
 
     public void OnDisable()
@@ -51,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         MPI.currentActionMap.Disable();
         move.started -= Handle_MoveStarted;
         move.canceled -= Handle_MoveCanceled;
+        restart.started -= Restart;
+        quit.started -= Quit;
     }
 
    
@@ -135,4 +139,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void Restart(InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Quit(InputAction.CallbackContext obj)
+    {
+        Application.Quit();
+        print("Quit");
+    }
 }

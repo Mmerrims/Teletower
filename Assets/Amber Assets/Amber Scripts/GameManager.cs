@@ -11,7 +11,12 @@ public class GameManager : MonoBehaviour
     //private float maxScore;
     [SerializeField] private ShootScript _shootScript;
     private bool playing;
-    private static GameManager instance;
+    //private static GameManager instance;
+    public bool HeadCrush;
+    public bool GroundCrush;
+    [SerializeField] private GameObject _deathScreen;
+
+    [SerializeField] private PlayerMovement _playerMovement;
 
     private void Start()
     {
@@ -27,6 +32,13 @@ public class GameManager : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (HeadCrush == true && GroundCrush == true)
+        {
+            playing = false;
+            _deathScreen.SetActive(true);
+            _playerMovement.CanMove = false;
+        }
+
         if (playing)
         {
             score += 1;

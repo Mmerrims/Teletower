@@ -15,4 +15,14 @@ public class MenuControls : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         print("Quit");
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Amber Scene");
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Amber Menu");
+    }
 }

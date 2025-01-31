@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Amber Scenes/Amber Menu.unity
+    guid: 435a20892ed7dc544a2859ecea81e507
+  - enabled: 1
+    path: Assets/Scenes/Amber Scenes/Amber Scene.unity
+    guid: ac4401d6f2d659540b6a8cd5091ff5a4
   m_configObjects: {}

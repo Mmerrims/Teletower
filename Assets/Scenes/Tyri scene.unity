@@ -318,6 +318,7 @@ MonoBehaviour:
   MPI: {fileID: 122681420}
   PlayerSpeed: 5
   PlayerShouldBeMoving: 0
+  CanMove: 0
   PlayerRB: {fileID: 122681419}
   moveDirection: 0
   inputHorizontal: 0

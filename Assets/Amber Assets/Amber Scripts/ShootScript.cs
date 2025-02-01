@@ -23,6 +23,7 @@ public class ShootScript : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
 
     private bool shooting;
+    public bool EndShooting;
 
     private Vector2 direction;
 
@@ -74,7 +75,7 @@ public class ShootScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shooting)
+        if (shooting && EndShooting == false)
         {
             if (canShoot && _currentShots > 0)
             {

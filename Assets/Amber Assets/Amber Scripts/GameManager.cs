@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
             playing = false;
             _deathScreen.SetActive(true);
             _playerMovement.CanMove = false;
+            _shootScript.EndShooting = true;
         }
 
         if (playing)

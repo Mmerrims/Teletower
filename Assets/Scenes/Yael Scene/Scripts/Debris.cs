@@ -8,6 +8,8 @@ public class Debris : MonoBehaviour
         [SerializeField] public bool _canSpawn;
         private int enemySpawn;
         private int randomTarget;
+        public int TotalEnemyTypes;
+        public int TotalSpawnPoints;
         private Transform targetSpawnPoint;
         [SerializeField] private Transform[] enemySpawnPoint;
         [SerializeField] private GameObject[] enemyTypes;
@@ -21,9 +23,9 @@ public class Debris : MonoBehaviour
             {
                 _canSpawn = false;
                 StartCoroutine(SpawnCooldown());
-                randomTarget = Random.Range(0, 5);
+                randomTarget = Random.Range(0, TotalSpawnPoints);
                 targetSpawnPoint = enemySpawnPoint[randomTarget];
-                enemySpawn = Random.Range(0, 3);
+                enemySpawn = Random.Range(0, TotalEnemyTypes);
                 targetEnemy = enemyTypes[enemySpawn];
                 GameObject enemySpawning = Instantiate(targetEnemy, targetSpawnPoint.position, _self.rotation);
             }

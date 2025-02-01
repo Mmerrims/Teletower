@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 //print("PlayerRB Should Be Moving");
                 //Makes the player able to move, and turns on the moving animation   
                 PlayerRB.velocity = new Vector2(PlayerSpeed * moveDirection, PlayerRB.velocity.y);
-                //Animator.SetBool("IsMoving", true);
+                _animator.SetBool("Walking", true);
         }
 
     }
@@ -129,6 +129,16 @@ public class PlayerMovement : MonoBehaviour
             PlayerRB.velocity = new Vector2(0, PlayerRB.velocity.y);
         }
 
+        if (_velocityX > 0)
+        {
+            gameObject.transform.localScale = new Vector2(1, 1);
+            _currentDirection = 1;
+        }
+        else if (_velocityX < 0)
+        {
+            gameObject.transform.localScale = new Vector2(-1, 1);
+            _currentDirection = -1;
+        }
     }
 
     public void Restart(InputAction.CallbackContext obj)

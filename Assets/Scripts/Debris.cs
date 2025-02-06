@@ -16,7 +16,8 @@ public class Debris : MonoBehaviour
         private GameObject targetEnemy;
         [SerializeField] private Transform _self;
         private float enemySpawnCooldown;
-        // Update is called once per frame
+    // Update is called once per frame
+        
         void Update()
         {
             if (_canSpawn == true)
@@ -27,6 +28,7 @@ public class Debris : MonoBehaviour
                 targetSpawnPoint = enemySpawnPoint[randomTarget];
                 enemySpawn = Random.Range(0, TotalEnemyTypes);
                 targetEnemy = enemyTypes[enemySpawn];
+                
                 GameObject enemySpawning = Instantiate(targetEnemy, targetSpawnPoint.position, _self.rotation);
             }
         }

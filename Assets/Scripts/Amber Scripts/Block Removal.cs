@@ -16,7 +16,7 @@ public class BlockRemoval : MonoBehaviour
         }
         if (collision.gameObject.tag == "BlockFreeze")
         {
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
@@ -29,7 +29,7 @@ public class BlockRemoval : MonoBehaviour
         }
         if (collision.gameObject.tag == "BlockFreeze")
         {
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 

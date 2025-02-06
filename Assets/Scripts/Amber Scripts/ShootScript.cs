@@ -27,6 +27,9 @@ public class ShootScript : MonoBehaviour
 
     private Vector2 direction;
 
+    [SerializeField] private bool _teleport;
+    [SerializeField] private GameObject _currentBullet;
+
     public int CurrentShots { get => _currentShots; set => _currentShots = value; }
 
     // Start is called before the first frame update
@@ -75,13 +78,39 @@ public class ShootScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_currentBullet == null)
+        {
+            print("No bullet");
+            _teleport = false;
+        }
+        else
+        {
+            _currentBullet = GameObject.Find("bullet(Clone)");
+            _teleport = true;
+        }
+
         if (shooting && EndShooting == false)
         {
-            if (canShoot && _currentShots > 0)
+            if (canShoot)
             {
                 canShoot = false;
-                ShootBullet();
-                _currentShots -= 1;
+                
+
+                if (_teleport == false && _currentShots > 0)
+                {
+                    canShoot = false;
+                    ShootBullet();
+                    _currentBullet = GameObject.Find("bullet(Clone)");
+                    _currentShots -= 1;
+                    print("Shot bullet");
+                }
+                if (_teleport == true)
+                {
+                    _currentBullet = GameObject.Find("bullet(Clone)");
+                    _player.transform.position = _currentBullet.transform.position;
+                    Destroy(_currentBullet);
+                    print("Teleported");
+                }
                 _gameManager.UpdateText();
             }
         }

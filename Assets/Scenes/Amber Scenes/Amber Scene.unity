@@ -1103,12 +1103,14 @@ MonoBehaviour:
   MPI: {fileID: 395214389}
   _maxShotCooldown: 0.5
   _shotCooldown: 0.5
-  _maxShots: 3
-  _currentShots: 3
-  _maxReloadCooldown: 3
-  _reloadCooldown: 3
+  _maxShots: 1
+  _currentShots: 1
+  _maxReloadCooldown: 1
+  _reloadCooldown: 1
   _gameManager: {fileID: 1984343707}
   EndShooting: 0
+  _teleport: 0
+  _currentBullet: {fileID: 0}
 --- !u!1 &407949586
 GameObject:
   m_ObjectHideFlags: 0

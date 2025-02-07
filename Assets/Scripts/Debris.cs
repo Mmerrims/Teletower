@@ -15,10 +15,15 @@ public class Debris : MonoBehaviour
         [SerializeField] private GameObject[] enemyTypes;
         private GameObject targetEnemy;
         [SerializeField] private Transform _self;
-        private float enemySpawnCooldown;
+        public float EnemySpawnCooldown;
     // Update is called once per frame
-        
-        void Update()
+
+    private void Start()
+    {
+        EnemySpawnCooldown = 3;
+    }
+
+    void Update()
         {
             if (_canSpawn == true)
             {
@@ -35,8 +40,7 @@ public class Debris : MonoBehaviour
 
         private IEnumerator SpawnCooldown()
         {
-            enemySpawnCooldown = Random.Range(1f, 3f);
-            yield return new WaitForSeconds(enemySpawnCooldown);
+            yield return new WaitForSeconds(EnemySpawnCooldown);
             _canSpawn = true;
         }
     }

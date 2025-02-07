@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     //private static GameManager instance;
     public bool HeadCrush;
     public bool GroundCrush;
+    public bool Death;
     [SerializeField] private GameObject _deathScreen;
 
     [SerializeField] private PlayerMovement _playerMovement;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (HeadCrush == true && GroundCrush == true)
+        if (HeadCrush == true && GroundCrush == true || Death == true)
         {
             playing = false;
             _deathScreen.SetActive(true);

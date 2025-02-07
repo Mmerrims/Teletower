@@ -6,17 +6,22 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "BlockRemove")
+        if (collision.gameObject.tag == "Ground")
         {
             _gameManager.GroundCrush = true;
+        }
+        if (collision.gameObject.tag == "BlockRemove")
+        {
+            _gameManager.Death = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "BlockRemove")
+        if (collision.gameObject.tag == "Ground")
         {
             _gameManager.GroundCrush = false;
         }
     }
+
 }

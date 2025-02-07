@@ -1241,6 +1241,7 @@ MonoBehaviour:
   EndShooting: 0
   _teleport: 0
   _currentBullet: {fileID: 0}
+  _playerRigidbody: {fileID: 122681419}
 --- !u!1 &407949586
 GameObject:
   m_ObjectHideFlags: 0

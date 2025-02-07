@@ -95,7 +95,15 @@ public class PlayerMovement : MonoBehaviour
                 PlayerRB.velocity = new Vector2(PlayerSpeed * moveDirection, PlayerRB.velocity.y);
                 _animator.SetBool("Walking", true);
         }
-
+        if (PlayerShouldBeMoving == true)
+        {
+            //Checks what direction the player should be moving(Horizontally)
+            moveDirection = move.ReadValue<float>();
+        }
+        else if (PlayerShouldBeMoving == false)
+        {
+            PlayerRB.velocity = new Vector2(0, PlayerRB.velocity.y);
+        }
     }
     // Update is called once per frame
     public void Update()
@@ -124,15 +132,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (PlayerShouldBeMoving == true)
-        {
-            //Checks what direction the player should be moving(Horizontally)
-            moveDirection = move.ReadValue<float>();
-        }
-        else if (PlayerShouldBeMoving == false)
-        {
-            PlayerRB.velocity = new Vector2(0, PlayerRB.velocity.y);
-        }
+       
 
         if (_velocityX > 0)
         {

@@ -107,7 +107,10 @@ public class ShootScript : MonoBehaviour
                 if (_teleport == true)
                 {
                     _currentBullet = GameObject.Find("bullet(Clone)");
-                    _player.transform.position = _currentBullet.transform.position;
+                    if(_player != null)
+                    {
+                        _player.transform.position = _currentBullet.transform.position;
+                    }
                     Destroy(_currentBullet);
                     print("Teleported");
                 }
@@ -138,13 +141,16 @@ public class ShootScript : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePos - (Vector2)_gun.position;
         FaceMouse();
-        if (mousePos.x < _player.transform.position.x)
+        if (_player != null)
         {
-            _gun.transform.localScale = new Vector2(1, -1);
-        }
-        else if (mousePos.x > _player.transform.position.x)
-        {
-            _gun.transform.localScale = new Vector2(1, 1);
+            if (mousePos.x < _player.transform.position.x)
+            {
+                _gun.transform.localScale = new Vector2(1, -1);
+            }
+            else if (mousePos.x > _player.transform.position.x)
+            {
+                _gun.transform.localScale = new Vector2(1, 1);
+            }
         }
     }
 

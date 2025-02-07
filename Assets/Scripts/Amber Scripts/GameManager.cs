@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _deathScreen;
 
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private GameObject _spawners;
 
     private void Start()
     {
@@ -43,6 +44,11 @@ public class GameManager : MonoBehaviour
                 _playerMovement.CanMove = false;
             }
             _shootScript.EndShooting = true;
+        }
+
+        if (playing == false)
+        {
+            _spawners.SetActive(false);
         }
 
         if (playing)

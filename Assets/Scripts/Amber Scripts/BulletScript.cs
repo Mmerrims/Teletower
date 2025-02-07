@@ -9,8 +9,12 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "BlockRemove")
         {
-            _player = GameObject.Find("Player");
-            _player.transform.position = _thisTransform.transform.position;
+            if (_player != null)
+            {
+                _player = GameObject.Find("Player");
+                _player.transform.position = _thisTransform.transform.position;
+                
+            }
             Destroy(gameObject);
         }
     }

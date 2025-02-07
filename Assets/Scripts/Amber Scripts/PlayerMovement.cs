@@ -83,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (CanMove == false)
+        {
+            Destroy(gameObject);
+        }
+
         if (PlayerShouldBeMoving == true && CanMove == true)
         {
                 //print("PlayerRB Should Be Moving");

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,7 +37,10 @@ public class GameManager : MonoBehaviour
         {
             playing = false;
             _deathScreen.SetActive(true);
-            _playerMovement.CanMove = false;
+            if (_playerMovement != null)
+            {
+                _playerMovement.CanMove = false;
+            }
             _shootScript.EndShooting = true;
         }
 

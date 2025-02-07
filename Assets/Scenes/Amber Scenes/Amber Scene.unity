@@ -253,11 +253,11 @@ Transform:
   m_GameObject: {fileID: 57701928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.77, y: 22.75, z: 0}
+  m_LocalPosition: {x: 14.77, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &122681415
 GameObject:
@@ -517,11 +517,11 @@ Transform:
   m_GameObject: {fileID: 230944444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.91, y: 22.75, z: 0}
+  m_LocalPosition: {x: 5.09, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232160196
 GameObject:
@@ -548,11 +548,11 @@ Transform:
   m_GameObject: {fileID: 232160196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.36, y: 22.75, z: 0}
+  m_LocalPosition: {x: 29.36, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297966530
 GameObject:
@@ -1358,11 +1358,11 @@ Transform:
   m_GameObject: {fileID: 412180276}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6, y: 22.75, z: 0}
+  m_LocalPosition: {x: 19.6, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436183645
 GameObject:
@@ -2579,11 +2579,11 @@ Transform:
   m_GameObject: {fileID: 1028007385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.07, y: 22.75, z: 0}
+  m_LocalPosition: {x: 9.93, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036439073
 GameObject:
@@ -3308,11 +3308,11 @@ Transform:
   m_GameObject: {fileID: 1377880242}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.74, y: 22.75, z: 0}
+  m_LocalPosition: {x: 0.26000023, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1388422796
 GameObject:
@@ -3376,7 +3376,14 @@ Transform:
   m_LocalPosition: {x: -13, y: 23.99, z: -0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1377880243}
+  - {fileID: 230944445}
+  - {fileID: 1028007386}
+  - {fileID: 57701929}
+  - {fileID: 412180277}
+  - {fileID: 1392269621}
+  - {fileID: 232160197}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392269620
@@ -3404,11 +3411,11 @@ Transform:
   m_GameObject: {fileID: 1392269620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.44, y: 22.75, z: 0}
+  m_LocalPosition: {x: 24.439999, y: -1.2399998, z: 0.15651545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1388422798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1537273036
 GameObject:
@@ -4214,8 +4221,10 @@ MonoBehaviour:
   _shootScript: {fileID: 395214390}
   HeadCrush: 0
   GroundCrush: 0
+  Death: 0
   _deathScreen: {fileID: 532399927}
   _playerMovement: {fileID: 122681421}
+  _spawners: {fileID: 1388422796}
 --- !u!1 &2003822341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4994,11 +5003,4 @@ SceneRoots:
   - {fileID: 452930114}
   - {fileID: 1984343706}
   - {fileID: 1388422798}
-  - {fileID: 1377880243}
-  - {fileID: 230944445}
-  - {fileID: 1028007386}
-  - {fileID: 57701929}
-  - {fileID: 412180277}
-  - {fileID: 1392269621}
-  - {fileID: 232160197}
   - {fileID: 436183648}

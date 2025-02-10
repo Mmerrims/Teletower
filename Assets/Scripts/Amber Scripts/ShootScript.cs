@@ -116,7 +116,7 @@ public class ShootScript : MonoBehaviour
                     Destroy(_currentBullet);
                     print("Teleported");
                 }
-                _gameManager.UpdateText();
+                //_gameManager.UpdateText();
             }
         }
         if (CanShoot == false)
@@ -135,7 +135,7 @@ public class ShootScript : MonoBehaviour
             {
                 _reloadCooldown = _maxReloadCooldown;
                 _currentShots += 1;
-                _gameManager.UpdateText();
+                //_gameManager.UpdateText();
             }
 
         }

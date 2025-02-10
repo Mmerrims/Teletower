@@ -10,6 +10,11 @@ public class HeadCheck : MonoBehaviour
         {
             _gameManager.HeadCrush = true;
         }
+
+        if (collision.gameObject.tag == "Win")
+        {
+            _gameManager.Win = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

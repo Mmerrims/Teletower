@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - BlockRemove
   - BlockFreeze
+  - Win
   layers:
   - Default
   - TransparentFX

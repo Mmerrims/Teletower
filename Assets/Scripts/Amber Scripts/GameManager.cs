@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     private float score;
     [SerializeField] private TMP_Text _endScreenScoreText;
+    [SerializeField] private TMP_Text _winScreenScoreText;
     //[SerializeField] private TMP_Text _maxScoreText;
     //private float maxScore;
     [SerializeField] private ShootScript _shootScript;
@@ -16,7 +17,9 @@ public class GameManager : MonoBehaviour
     public bool HeadCrush;
     public bool GroundCrush;
     public bool Death;
+    public bool Win;
     [SerializeField] private GameObject _deathScreen;
+    [SerializeField] private GameObject _winScreen;
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _spawners;
@@ -25,14 +28,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         score = 0;
-        UpdateText();
+        //UpdateText();
         playing = true;
     }
 
-    public void UpdateText()
-    {
-        _gunCharges.text = ("Charges: " + _shootScript.CurrentShots);
-    }
+    //public void UpdateText()
+    //{
+    //    _gunCharges.text = ("Charges: " + _shootScript.CurrentShots);
+    //}
 
     public void FixedUpdate()
     {
@@ -60,6 +63,17 @@ public class GameManager : MonoBehaviour
             _spawners.SetActive(false);
         }
 
+        if (Win == true)
+        {
+            playing = false;
+            _winScreen.SetActive(true);
+            if (_playerMovement != null)
+            {
+                _playerMovement.CanMove = false;
+            }
+            _shootScript.EndShooting = true;
+        }
+
         if (playing)
         {
             score += 1;
@@ -71,6 +85,7 @@ public class GameManager : MonoBehaviour
 
         _scoreText.text = ("Score: " + score);
         _endScreenScoreText.text = ("Final Score: " + score);
+        _winScreenScoreText.text = ("Final Score: " + score);
         //_maxScoreText.text = ("High Score: " + maxScore);
     }
 

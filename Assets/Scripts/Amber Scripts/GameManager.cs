@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _gunCharges;
+
     [SerializeField] private TMP_Text _scoreText;
     private float score;
     [SerializeField] private TMP_Text _endScreenScoreText;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _spawners;
+    [SerializeField] private GameObject BallChargedObject;
 
     private void Start()
     {
@@ -34,6 +36,14 @@ public class GameManager : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (_shootScript.CanShoot == true)
+        {
+            BallChargedObject.SetActive(true);
+        } else
+        {
+            BallChargedObject.SetActive(false);
+        }
+
         if (HeadCrush == true && GroundCrush == true || Death == true)
         {
             playing = false;

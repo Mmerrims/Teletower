@@ -11,7 +11,7 @@ public class ShootScript : MonoBehaviour
     public PlayerInput MPI;
     private InputAction shoot;
 
-    private bool canShoot;
+    public bool CanShoot;
     [SerializeField] private float _maxShotCooldown;
     [SerializeField] private float _shotCooldown;
 
@@ -36,7 +36,7 @@ public class ShootScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canShoot = true;
+        CanShoot = true;
         MPI = GetComponent<PlayerInput>();
 
         //Grabs all the player's inputs
@@ -92,14 +92,14 @@ public class ShootScript : MonoBehaviour
 
         if (shooting && EndShooting == false)
         {
-            if (canShoot)
+            if (CanShoot)
             {
-                canShoot = false;
+                CanShoot = false;
                 
 
                 if (_teleport == false && _currentShots > 0)
                 {
-                    canShoot = false;
+                    CanShoot = false;
                     ShootBullet();
                     _currentBullet = GameObject.Find("bullet(Clone)");
                     _currentShots -= 1;
@@ -119,12 +119,12 @@ public class ShootScript : MonoBehaviour
                 _gameManager.UpdateText();
             }
         }
-        if (canShoot == false)
+        if (CanShoot == false)
         {
             _shotCooldown -= Time.deltaTime;
             if (_shotCooldown <= 0)
             {
-                canShoot = true;
+                CanShoot = true;
                 _shotCooldown = _maxShotCooldown;
             }
         }

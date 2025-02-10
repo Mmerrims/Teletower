@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuControls : MonoBehaviour
 {
+    [SerializeField] private GameObject MainMenuObjects;
+    [SerializeField] private GameObject ControlsObjects;
+
     public void Quit()
     {
         Application.Quit();
@@ -24,5 +27,17 @@ public class MenuControls : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Amber Menu");
+    }
+
+    public void ShowControls()
+    {
+        MainMenuObjects.SetActive(false);
+        ControlsObjects.SetActive(true);
+    }
+
+    public void HideControls()
+    {
+        MainMenuObjects.SetActive(true);
+        ControlsObjects.SetActive(false);
     }
 }

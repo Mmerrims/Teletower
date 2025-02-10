@@ -81,7 +81,7 @@ public class ShootScript : MonoBehaviour
     {
         if (_currentBullet == null)
         {
-            print("No bullet");
+            //print("No bullet");
             _teleport = false;
         }
         else

@@ -33,6 +33,8 @@ public class ShootScript : MonoBehaviour
     public int CurrentShots { get => _currentShots; set => _currentShots = value; }
 
     [SerializeField] private Rigidbody2D _playerRigidbody;
+
+    [SerializeField] private TeleportFX _tFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +115,7 @@ public class ShootScript : MonoBehaviour
                     {
                         _player.transform.position = _currentBullet.transform.position;
                         _playerRigidbody.velocity = new Vector2(0, 0);
+                        _tFX.TeleportFXSpawn();
                     }
                     Destroy(_currentBullet);
                     print("Teleported");

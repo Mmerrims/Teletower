@@ -902,6 +902,7 @@ MonoBehaviour:
   _bulletSpawn: {fileID: 1830972989}
   _bulletSpeed: 1000
   MPI: {fileID: 395214389}
+  CanShoot: 0
   _maxShotCooldown: 0.5
   _shotCooldown: 0.5
   _maxShots: 3
@@ -912,6 +913,7 @@ MonoBehaviour:
   EndShooting: 0
   _teleport: 0
   _currentBullet: {fileID: 0}
+  _playerRigidbody: {fileID: 0}
 --- !u!1 &407949586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545b16755aec5ba48aa6dec84fe64791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainMenuObjects: {fileID: 0}
+  ControlsObjects: {fileID: 0}
 --- !u!1 &1537273036
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545b16755aec5ba48aa6dec84fe64791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainMenuObjects: {fileID: 0}
+  ControlsObjects: {fileID: 0}
 --- !u!114 &1644140829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3842,11 +3848,17 @@ MonoBehaviour:
   _gunCharges: {fileID: 2147474166}
   _scoreText: {fileID: 1659203218}
   _endScreenScoreText: {fileID: 1612847047}
+  _winScreenScoreText: {fileID: 0}
   _shootScript: {fileID: 395214390}
   HeadCrush: 0
   GroundCrush: 0
+  Death: 0
+  Win: 0
   _deathScreen: {fileID: 532399927}
+  _winScreen: {fileID: 0}
   _playerMovement: {fileID: 122681421}
+  _spawners: {fileID: 0}
+  BallChargedObject: {fileID: 0}
 --- !u!1 &2003822341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,6 +4326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545b16755aec5ba48aa6dec84fe64791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainMenuObjects: {fileID: 0}
+  ControlsObjects: {fileID: 0}
 --- !u!1 &2108673172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,6 +4606,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147474164}
   m_CullTransparentMesh: 1
+--- !u!1001 &1200502038949104391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1230923446093332248, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_Name
+      value: TELETOWERCOOLDOWN
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.98342466
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.412593
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401589152862301308, guid: cb0b643e36560764aab04f519e84f221, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb0b643e36560764aab04f519e84f221, type: 3}
 --- !u!1001 &2116611331699915252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5101,3 +5172,4 @@ SceneRoots:
   - {fileID: 6587159579404077922}
   - {fileID: 2116611331699915252}
   - {fileID: 5710995950502761248}
+  - {fileID: 1200502038949104391}

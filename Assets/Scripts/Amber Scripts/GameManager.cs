@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _spawners;
     [SerializeField] private GameObject BallChargedObject;
+    [SerializeField] private Animator _scrollAnimator;
 
     private void Start()
     {

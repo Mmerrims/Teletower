@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6522525535969900837}
   - component: {fileID: 7495156413223606710}
   - component: {fileID: -8200643566766978566}
+  - component: {fileID: 8503201719960710386}
   m_Layer: 7
   m_Name: TELETOWERBLOCKS_3 1
   m_TagString: Ground
@@ -265,3 +266,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deathTime: 14
   _rigidbody: {fileID: 7495156413223606710}
+--- !u!114 &8503201719960710386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832414221828091840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12fdf31eb6a358c429c99aa4630f7155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

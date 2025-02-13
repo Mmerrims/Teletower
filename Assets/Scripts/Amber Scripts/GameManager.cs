@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _spawners;
-    [SerializeField] private GameObject BallChargedObject;
-    [SerializeField] private Animator _scrollAnimator;
+    //[SerializeField] private GameObject BallChargedObject;
+    //[SerializeField] private Animator _scrollAnimator;
 
     private void Start()
     {
@@ -40,13 +40,14 @@ public class GameManager : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (_shootScript.CanShoot == true)
-        {
-            BallChargedObject.SetActive(true);
-        } else
-        {
-            BallChargedObject.SetActive(false);
-        }
+        //if (_shootScript.CanShoot == true)
+        //{
+        //    BallChargedObject.SetActive(true);
+
+        //} else
+        //{
+        //    BallChargedObject.SetActive(false);
+        //}
 
         if (HeadCrush == true && GroundCrush == true || Death == true)
         {
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
                 _playerMovement.CanMove = false;
             }
             _shootScript.EndShooting = true;
+            //_scrollAnimator.SetBool("StopLose", true);
         }
 
         if (playing == false)
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
                 _playerMovement.CanMove = false;
             }
             _shootScript.EndShooting = true;
+           // _scrollAnimator.SetBool("StopWin", true);
         }
 
         if (playing)

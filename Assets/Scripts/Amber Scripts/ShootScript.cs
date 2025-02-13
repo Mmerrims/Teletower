@@ -29,7 +29,7 @@ public class ShootScript : MonoBehaviour
 
     [SerializeField] private bool _teleport;
     [SerializeField] private GameObject _currentBullet;
-
+    [SerializeField] private Animator _ballAnimator;
     public int CurrentShots { get => _currentShots; set => _currentShots = value; }
 
     [SerializeField] private Rigidbody2D _playerRigidbody;
@@ -104,6 +104,7 @@ public class ShootScript : MonoBehaviour
                     _currentBullet = GameObject.Find("bullet(Clone)");
                     _currentShots -= 1;
                     print("Shot bullet");
+                    
                 }
                 if (_teleport == true)
                 {
@@ -116,6 +117,7 @@ public class ShootScript : MonoBehaviour
                     Destroy(_currentBullet);
                     print("Teleported");
                 }
+                _ballAnimator.Play("BallDeactivate");
                 //_gameManager.UpdateText();
             }
         }
@@ -125,6 +127,7 @@ public class ShootScript : MonoBehaviour
             if (_shotCooldown <= 0)
             {
                 CanShoot = true;
+                _ballAnimator.Play("BallActivate");
                 _shotCooldown = _maxShotCooldown;
             }
         }

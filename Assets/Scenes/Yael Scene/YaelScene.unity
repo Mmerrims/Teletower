@@ -5053,7 +5053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerZText: {fileID: 1327262866}
   remainingTime: 100
-  WinZone: {fileID: 0}
+  WinZone: {fileID: 1422253958}
 --- !u!114 &1327262866
 MonoBehaviour:
   m_ObjectHideFlags: 0

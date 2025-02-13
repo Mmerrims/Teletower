@@ -37,10 +37,6 @@ public class PlayerMovement : MonoBehaviour
    // [SerializeField] private CheckpointManager _checkpointManager;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    [SerializeField] private Transform _landPowSpawnLeft;
-    [SerializeField] private Transform _landPowSpawnRight;
-    [SerializeField] private GameObject _landPow;
-
     private void Awake()
     {
         _moving = false;
@@ -278,18 +274,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")//Checks if the player is touching the ground
         {
-            print("Touch Grass");
+                print("Touch Grass");
 
-            InAir = false;
-                
-            if (gameObject.GetComponent<SpriteRenderer>().flipX == true && _velocityY < 0)
-            {
-                Instantiate(_landPow, _landPowSpawnRight.position, Quaternion.identity);
-            }
-            else if (_velocityY < 0)
-            {
-                Instantiate(_landPow, _landPowSpawnLeft.position, Quaternion.identity);
-            }
+                InAir = false;
                 // CanDoubleJump = false;
                 //JumpIndicator.gameObject.SetActive(false);
             Colliding++;

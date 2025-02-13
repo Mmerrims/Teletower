@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 337619571}
   - component: {fileID: 337619570}
   - component: {fileID: 337619569}
+  - component: {fileID: 337619573}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuObjects: {fileID: 2083988848}
   ControlsObjects: {fileID: 598827233}
+  MPI: {fileID: 337619573}
 --- !u!114 &337619570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +366,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337619567}
   m_CullTransparentMesh: 1
+--- !u!114 &337619573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337619567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1e44a3ebd55b4b449926cbb571967a58, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player Controls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &352647599
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +409,7 @@ GameObject:
   - component: {fileID: 352647603}
   - component: {fileID: 352647602}
   - component: {fileID: 352647601}
+  - component: {fileID: 352647605}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -418,6 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuObjects: {fileID: 2083988848}
   ControlsObjects: {fileID: 598827233}
+  MPI: {fileID: 352647605}
 --- !u!114 &352647602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +546,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352647599}
   m_CullTransparentMesh: 1
+--- !u!114 &352647605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352647599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1e44a3ebd55b4b449926cbb571967a58, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player Controls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &438755296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1490,7 +1554,6 @@ GameObject:
   - component: {fileID: 1116403616}
   - component: {fileID: 1116403615}
   - component: {fileID: 1116403614}
-  - component: {fileID: 1116403617}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1562,7 +1625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1116403617}
+      - m_Target: {fileID: 352647601}
         m_TargetAssemblyTypeName: MenuControls, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -1612,20 +1675,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116403612}
   m_CullTransparentMesh: 1
---- !u!114 &1116403617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116403612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545b16755aec5ba48aa6dec84fe64791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainMenuObjects: {fileID: 0}
-  ControlsObjects: {fileID: 0}
 --- !u!1 &1116740278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1792,6 @@ GameObject:
   - component: {fileID: 1292794659}
   - component: {fileID: 1292794658}
   - component: {fileID: 1292794657}
-  - component: {fileID: 1292794660}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1815,7 +1863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1292794660}
+      - m_Target: {fileID: 352647601}
         m_TargetAssemblyTypeName: MenuControls, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -1865,20 +1913,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292794655}
   m_CullTransparentMesh: 1
---- !u!114 &1292794660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292794655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545b16755aec5ba48aa6dec84fe64791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainMenuObjects: {fileID: 0}
-  ControlsObjects: {fileID: 0}
 --- !u!1 &1319677345
 GameObject:
   m_ObjectHideFlags: 0

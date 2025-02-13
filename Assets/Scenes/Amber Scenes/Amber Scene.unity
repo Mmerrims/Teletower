@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MPI: {fileID: 122681420}
-  PlayerSpeed: 5
+  PlayerSpeed: 6
   PlayerShouldBeMoving: 0
   CanMove: 1
   PlayerRB: {fileID: 122681419}
@@ -466,6 +466,9 @@ MonoBehaviour:
   InAir: 0
   _self: {fileID: 122681417}
   _moving: 0
+  JumpForce: 6
+  PerformLaunch: 0
+  Colliding: 0
   _animator: {fileID: 611385476}
   _velocityX: 0
   _velocityY: 0
@@ -1601,12 +1604,12 @@ MonoBehaviour:
   _bulletSpeed: 1000
   MPI: {fileID: 395214389}
   CanShoot: 0
-  _maxShotCooldown: 0.5
-  _shotCooldown: 0.5
+  _maxShotCooldown: 1
+  _shotCooldown: 1
   _maxShots: 1
   _currentShots: 1
-  _maxReloadCooldown: 1
-  _reloadCooldown: 1
+  _maxReloadCooldown: 0.5
+  _reloadCooldown: 0.5
   _gameManager: {fileID: 1984343707}
   EndShooting: 0
   _teleport: 0

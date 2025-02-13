@@ -20,6 +20,7 @@ public class BulletScript : MonoBehaviour
             {
                 _player.transform.position = _thisTransform.transform.position;
                 _playerRigidbody.velocity = new Vector2(0, 0);
+                _player.GetComponent<TeleportFX>().TeleportFXSpawn();
             }
             Destroy(gameObject);
         }

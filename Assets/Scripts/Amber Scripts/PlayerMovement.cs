@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction move;
     private InputAction restart;
     private InputAction quit;
+    private InputAction jump;
     
     public float PlayerSpeed;
     public bool PlayerShouldBeMoving;
@@ -18,10 +20,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveDirection;
     [SerializeField] private float inputHorizontal;
     public bool InAir;
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
     [SerializeField] private Transform _self;
     [SerializeField] private bool _moving;
-
-   
+    private bool playerJump;
+    public float JumpForce;
+    public bool PerformLaunch;
+    public int Colliding;
     [SerializeField] private Animator _animator;
 
     [SerializeField] private float _velocityX;
@@ -40,9 +46,12 @@ public class PlayerMovement : MonoBehaviour
         move = MPI.currentActionMap.FindAction("Move");
         restart = MPI.currentActionMap.FindAction("Restart");
         quit = MPI.currentActionMap.FindAction("Quit");
-        
+        jump = MPI.currentActionMap.FindAction("Jump");
+
 
         MPI.currentActionMap.Enable();
+        jump.started += Handle_JumpAction;
+        jump.canceled += Handle_JumpActionCanceled;
         move.started += Handle_MoveStarted;
         move.canceled += Handle_MoveCanceled;
         restart.started += Restart;
@@ -54,8 +63,70 @@ public class PlayerMovement : MonoBehaviour
         MPI.currentActionMap.Disable();
         move.started -= Handle_MoveStarted;
         move.canceled -= Handle_MoveCanceled;
+        jump.started -= Handle_JumpAction;
+        jump.canceled -= Handle_JumpActionCanceled;
         restart.started -= Restart;
         quit.started -= Quit;
+    }
+
+    private void Handle_JumpAction(InputAction.CallbackContext obj)
+    {
+        //if (_parrying == false)
+        //{
+        // AudioSource.PlayClipAtPoint(Jumping, transform.position, 100);
+            if (CanMove == true)
+            {
+                //Can only be active if dash isn't occuring
+                //if (DashActive == false)
+
+
+                //Checks if the player is touching the ground
+                if (coyoteTimeCounter > 0f)
+                /// if (IsColliding == true)
+                {
+                    //Makes the player jump command activate
+                    playerJump = true;
+                    //Allows the PerformLaunch Command to be allowed.
+                    PerformLaunch = true;
+                    //Makes it so the double jump doesn't activate
+                    //DoubleJump = false;
+                }
+                else
+                {
+
+                    //Makes is so the player can't jump, but they are able to double jump
+                    playerJump = false;
+                    PerformLaunch = true;
+                    //if (CanDoubleJump == true)
+                    //{
+                    //    DoubleJump = true;
+                    //    //Animator.SetBool("DoubleJump", true);
+                    //}
+
+
+
+                }
+                if (playerJump == true)
+                {
+                    PlayerShouldBeMoving = true;
+                }
+                //print("Handled Jump Started");
+            }
+            //}
+        
+
+
+
+    }
+
+    private void Handle_JumpActionCanceled(InputAction.CallbackContext context)
+    {
+
+            if (PlayerRB.velocity.y > 0f)
+            {
+                PlayerRB.velocity = new Vector2(PlayerRB.velocity.x, PlayerRB.velocity.y * 0.5f);
+            }
+        
     }
 
     //private void Handle_ToMenuPerformed(InputAction.CallbackContext context)
@@ -83,6 +154,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (coyoteTimeCounter > 0f)
+        {
+            //Checks if the player is colliding with something, and if so turns off InAir and makes sure the double jump doesn't occur
+            //DoubleJump = false;
+            InAir = false;
+
+            //Animator.SetBool("InAir", false);
+
+            //Animator.SetBool("OnGround", true);
+
+        }
+
         if (CanMove == false)
         {
             Destroy(gameObject);
@@ -103,6 +186,40 @@ public class PlayerMovement : MonoBehaviour
         else if (PlayerShouldBeMoving == false)
         {
             PlayerRB.velocity = new Vector2(0, PlayerRB.velocity.y);
+        }
+
+
+        if (CanMove == true && PerformLaunch == true && playerJump == true)
+        {
+            //CoyoteTimer = 0;
+            //IsColliding = false;
+
+            if (transform.parent != null)
+            {
+                PlayerRB.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x, JumpForce + transform.parent.GetComponent<Rigidbody2D>().velocity.y);
+                coyoteTimeCounter = 0;
+            }
+            else
+            {
+                PlayerRB.velocity = new Vector2(0, JumpForce);
+                coyoteTimeCounter = 0;
+            }
+            //print("PlayerRB should be jumpin");
+
+
+            //Launches the player upwards
+
+            //Turns off the player jump
+            playerJump = false;
+            PerformLaunch = false;
+            //Turns on the jumping animation
+            //Animator.SetBool("IsMoving", true);
+            //Animator.SetBool("OnGround", false);
+            //Animator.SetBool("InAir", true);
+            //Animator.SetBool("DoubleJump", false);
+            //Animator.SetBool("Dash", false);
+
+            InAir = true;
         }
     }
     // Update is called once per frame
@@ -131,8 +248,15 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("Walking", false);
         }
 
+        if (Colliding >= 1)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
-       
 
         if (_velocityX > 0)
         {
@@ -143,6 +267,33 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector2(-1, 1);
             _currentDirection = -1;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")//Checks if the player is touching the ground
+        {
+                print("Touch Grass");
+
+                InAir = false;
+                // CanDoubleJump = false;
+                //JumpIndicator.gameObject.SetActive(false);
+            Colliding++;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {//Makes the game realize the player is not touching the ground
+            //print("Dont Touch Grass");
+            InAir = true;
+            // CoyoteTime = true;
+            // IsColliding = false;
+            Colliding--;
+            //CanDoubleJump = true;
+            print("Left Grass");
         }
     }
 

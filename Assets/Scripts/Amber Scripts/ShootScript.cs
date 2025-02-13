@@ -92,6 +92,17 @@ public class ShootScript : MonoBehaviour
             _teleport = true;
         }
 
+        if (CanShoot == true)
+        {
+            _ballAnimator.SetBool("Activate", true);
+            _ballAnimator.SetBool("Deactivate", false);
+        } else
+        {
+            _ballAnimator.SetBool("Activate", false);
+            _ballAnimator.SetBool("Deactivate", true);
+        }
+        
+
         if (shooting && EndShooting == false)
         {
             if (CanShoot)
@@ -104,9 +115,9 @@ public class ShootScript : MonoBehaviour
                     CanShoot = false;
                     ShootBullet();
                     _currentBullet = GameObject.Find("bullet(Clone)");
+                    _shotCooldown -= .3f;
                     _currentShots -= 1;
                     print("Shot bullet");
-                    
                 }
                 if (_teleport == true)
                 {
@@ -120,7 +131,7 @@ public class ShootScript : MonoBehaviour
                     Destroy(_currentBullet);
                     print("Teleported");
                 }
-                _ballAnimator.Play("BallDeactivate");
+                
                 //_gameManager.UpdateText();
             }
         }

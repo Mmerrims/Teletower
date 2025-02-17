@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _gunCharges;
 
-    [SerializeField] private TMP_Text _scoreText;
-    private float score;
+    //[SerializeField] private TMP_Text _scoreText;
+    //private float score;
     [SerializeField] private TMP_Text _endScreenScoreText;
     [SerializeField] private TMP_Text _winScreenScoreText;
     //[SerializeField] private TMP_Text _maxScoreText;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        score = 0;
+       // score = 0;
         //UpdateText();
         playing = true;
     }
@@ -78,18 +78,18 @@ public class GameManager : MonoBehaviour
            // _scrollAnimator.SetBool("StopWin", true);
         }
 
-        if (playing)
-        {
-            score += 1;
-        }
+        //if (playing)
+       //{
+            //score += 1;
+       // }
         //if (score > maxScore)
         //{
         //    maxScore = score;
         //}
 
-        _scoreText.text = ("Score: " + score);
-        _endScreenScoreText.text = ("Final Score: " + score);
-        _winScreenScoreText.text = ("Final Score: " + score);
+        //_scoreText.text = ("Score: " + score);
+        //_endScreenScoreText.text = ("Final Score: " + score);
+        //_winScreenScoreText.text = ("Final Score: " + score);
         //_maxScoreText.text = ("High Score: " + maxScore);
     }
 

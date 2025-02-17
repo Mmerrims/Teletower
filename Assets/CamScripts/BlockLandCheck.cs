@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlockLandCheck : MonoBehaviour
 {
     private GameObject _camera;
-    private bool _firstHit;
+    private bool _firstHit = true;
 
     // Start is called before the first frame update
     void Start()

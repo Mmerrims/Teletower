@@ -14,15 +14,21 @@ public class MenuControls : MonoBehaviour
     private void Awake()
     {
         MPI = GetComponent<PlayerInput>();
-        back = MPI.currentActionMap.FindAction("Back");
-        MPI.currentActionMap.Enable();
-        back.started += Back;
+        if (MPI != null)
+        {
+            back = MPI.currentActionMap.FindAction("Back");
+            MPI.currentActionMap.Enable();
+            back.started += Back;
+        }
     }
 
     public void OnDisable()
     {
-        MPI.currentActionMap.Disable();
-        back.started -= Back;
+        if (MPI != null)
+        {
+            MPI.currentActionMap.Disable();
+            back.started -= Back;
+        }
     }
 
     public void Quit()

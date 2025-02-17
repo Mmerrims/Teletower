@@ -6021,7 +6021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1659203217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6903,7 +6903,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunCharges: {fileID: 2147474166}
-  _scoreText: {fileID: 1659203218}
   _endScreenScoreText: {fileID: 1612847047}
   _winScreenScoreText: {fileID: 1451679502}
   _shootScript: {fileID: 395214390}

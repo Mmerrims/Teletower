@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
     }
     public void JumpLand()
     {
-        audioSource.PlayOneShot(JumpLandSFX);
+       // audioSource.PlayOneShot(JumpLandSFX);
     }
     public void Move()
     {

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEditor;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -37,8 +38,17 @@ public class PlayerMovement : MonoBehaviour
    // [SerializeField] private CheckpointManager _checkpointManager;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
+
     private void Awake()
     {
+        audioManagerObject = GameObject.Find("Audio Manager");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
+
         _moving = false;
         PlayerRB = GetComponent<Rigidbody2D>();
         MPI = GetComponent<PlayerInput>();
@@ -88,8 +98,9 @@ public class PlayerMovement : MonoBehaviour
                     playerJump = true;
                     //Allows the PerformLaunch Command to be allowed.
                     PerformLaunch = true;
-                    //Makes it so the double jump doesn't activate
-                    //DoubleJump = false;
+                //Makes it so the double jump doesn't activate
+                //DoubleJump = false;
+                audioManager.Jump();
                 }
                 else
                 {
@@ -140,20 +151,24 @@ public class PlayerMovement : MonoBehaviour
         {
             // Can only be active if dash isn't occuring
                 //Turns on the movement command
-                PlayerShouldBeMoving = true;
+            PlayerShouldBeMoving = true;
             _moving = true;
+            audioManager.Move();
         }
                 
     }
     private void Handle_MoveCanceled(InputAction.CallbackContext obj)
     {//Can only be active if dash isn't occuring
-            _moving = false;
-            PlayerShouldBeMoving = false;
+        _moving = false;
+        PlayerShouldBeMoving = false;
+        audioManager.MoveStop();
     }
 
 
     public void FixedUpdate()
     {
+
+
         if (coyoteTimeCounter > 0f)
         {
             //Checks if the player is colliding with something, and if so turns off InAir and makes sure the double jump doesn't occur
@@ -280,6 +295,7 @@ public class PlayerMovement : MonoBehaviour
                 // CanDoubleJump = false;
                 //JumpIndicator.gameObject.SetActive(false);
             Colliding++;
+            audioManager.JumpLand();
         }
     }
 

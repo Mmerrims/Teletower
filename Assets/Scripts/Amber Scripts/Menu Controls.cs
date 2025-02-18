@@ -64,13 +64,27 @@ public class MenuControls : MonoBehaviour
     {
         MainMenuObjects.SetActive(true);
         ControlsObjects.SetActive(false);
-        CreditsObject.SetActive(true);
+        CreditsObject.SetActive(false);
     }
 
     public void Back(InputAction.CallbackContext obj)
     {
         MainMenuObjects.SetActive(true);
         ControlsObjects.SetActive(false);
+        CreditsObject.SetActive(false);
+    }
+
+    public void ShowCredits()
+    {
+        MainMenuObjects.SetActive(false);
+        ControlsObjects.SetActive(false);
         CreditsObject.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        MainMenuObjects.SetActive(true);
+        ControlsObjects.SetActive(false);
+        CreditsObject.SetActive(false);
     }
 }

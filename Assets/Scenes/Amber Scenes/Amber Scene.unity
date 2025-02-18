@@ -364,7 +364,7 @@ MonoBehaviour:
   MoveSFX: {fileID: 771759703}
   BobDeathMusicSFX: {fileID: 1924365833}
   GameThemeSFX: {fileID: 2122893502}
-  BobDeathSFX: {fileID: 8300000, guid: a100324109defca4c8daecf424fc5d2f, type: 3}
+  BobDeathSFX: {fileID: 8300000, guid: f0d356503a890ca419a3cdcedc025233, type: 3}
   ClickSFX: {fileID: 8300000, guid: f099601839539f845b180fc621ce1656, type: 3}
   WinSFX: {fileID: 8300000, guid: a99e6b7f946f26e4789d57b7fd3fd006, type: 3}
   PlayerSpawnSFX: {fileID: 8300000, guid: b9c68ce308d25364393bec14e77f5e92, type: 3}
@@ -3706,7 +3706,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2cc925430444c394f88f46f5e38d5514, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -7363,7 +7363,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e5b7fc48318260a499cb39da5da6050f, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -8865,7 +8865,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5a225b1f09d8d9d419bfa53b5ddc2dc7, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

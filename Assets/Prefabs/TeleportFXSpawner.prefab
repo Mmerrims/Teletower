@@ -47,4 +47,5 @@ MonoBehaviour:
   _pX: {fileID: 1434823219837102038, guid: 6c18af3b5063a89488e2cc19f9eeaae3, type: 3}
   _pY: {fileID: 3480399985743409655, guid: 2364bf6288720e14bab03a360d09964b, type: 3}
   _pZ: {fileID: 3478942691080728813, guid: 36b56646a45e13e43a4a0b810bba86fa, type: 3}
+  _circle: {fileID: 4087642437115326382, guid: e2db0b05a727cf547a0f01438e62a746, type: 3}
   _playerTransform: {fileID: 0}

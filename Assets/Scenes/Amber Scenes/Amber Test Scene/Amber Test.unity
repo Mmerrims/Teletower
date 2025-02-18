@@ -5256,8 +5256,8 @@ MonoBehaviour:
   GameThemeSFX: {fileID: 391784351}
   BobDeathSFX: {fileID: 8300000, guid: a100324109defca4c8daecf424fc5d2f, type: 3}
   ClickSFX: {fileID: 8300000, guid: f099601839539f845b180fc621ce1656, type: 3}
-  WinSFX: {fileID: 0}
-  PlayerSpawnSFX: {fileID: 0}
+  WinSFX: {fileID: 8300000, guid: a99e6b7f946f26e4789d57b7fd3fd006, type: 3}
+  PlayerSpawnSFX: {fileID: 8300000, guid: b9c68ce308d25364393bec14e77f5e92, type: 3}
 --- !u!4 &1269944631
 Transform:
   m_ObjectHideFlags: 0

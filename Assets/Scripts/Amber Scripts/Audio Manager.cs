@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
     }
     public void MoveStop()
     {
-        MoveSFX.SetActive(true);
+        MoveSFX.SetActive(false);
     }
     public void BallRefill()
     {

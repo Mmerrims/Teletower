@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
             audioManager = audioManagerObject.GetComponent<AudioManager>();
         }
 
+        audioManager.PlayerSpawn();
+
         _moving = false;
         PlayerRB = GetComponent<Rigidbody2D>();
         MPI = GetComponent<PlayerInput>();

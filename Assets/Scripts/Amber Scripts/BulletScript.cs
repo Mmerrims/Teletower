@@ -6,10 +6,19 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRigidbody;
     [SerializeField] private Transform _thisTransform;
 
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
+
     private void Start()
     {
         _player = GameObject.Find("Player");
         _playerRigidbody = _player.GetComponent<Rigidbody2D>();
+
+        audioManagerObject = GameObject.Find("Audio Manager");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -21,6 +30,7 @@ public class BulletScript : MonoBehaviour
                 _player.transform.position = _thisTransform.transform.position;
                 _playerRigidbody.velocity = new Vector2(0, 0);
                 _player.GetComponent<TeleportFX>().TeleportFXSpawn();
+                audioManager.Teleport();
             }
             Destroy(gameObject);
         }

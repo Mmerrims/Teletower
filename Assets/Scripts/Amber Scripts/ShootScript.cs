@@ -36,6 +36,9 @@ public class ShootScript : MonoBehaviour
 
     [SerializeField] private TeleportFX _tFX;
     // Start is called before the first frame update
+
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
     void Start()
     {
         CanShoot = true;
@@ -46,6 +49,12 @@ public class ShootScript : MonoBehaviour
         MPI.currentActionMap.Enable();
         shoot.started += ShootStart;
         shoot.canceled += ShootCancel;
+
+        audioManagerObject = GameObject.Find("Audio Manager");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
     }
 
     public void OnDestroy()
@@ -76,6 +85,7 @@ public class ShootScript : MonoBehaviour
     {
         GameObject BulletInstance = Instantiate(_bullet, _bulletSpawn.position, _bulletSpawn.rotation);
         BulletInstance.GetComponent<Rigidbody2D>().AddForce(BulletInstance.transform.right * _bulletSpeed);
+        audioManager.BallThrow();
     }
 
     // Update is called once per frame
@@ -127,6 +137,7 @@ public class ShootScript : MonoBehaviour
                         _player.transform.position = _currentBullet.transform.position;
                         _playerRigidbody.velocity = new Vector2(0, 0);
                         _tFX.TeleportFXSpawn();
+                        audioManager.Teleport();
                     }
                     Destroy(_currentBullet);
                     print("Teleported");
@@ -143,6 +154,7 @@ public class ShootScript : MonoBehaviour
                 CanShoot = true;
                 _ballAnimator.Play("BallActivate");
                 _shotCooldown = _maxShotCooldown;
+                audioManager.BallRefill();
             }
         }
         if (_currentShots < _maxShots)

@@ -6,7 +6,6 @@ public class BlockRemoval : MonoBehaviour
     [SerializeField] private float _deathTime;
     [SerializeField] private Rigidbody2D _rigidbody;
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "BlockRemove")
@@ -18,11 +17,15 @@ public class BlockRemoval : MonoBehaviour
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+        if (collision.gameObject.tag == "Ground")
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BlockRemove")
+        if (collision.CompareTag("BlockRemove"))
         {
             print("RemoveStart");
             StartCoroutine(Remove());

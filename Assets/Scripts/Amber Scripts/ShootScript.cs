@@ -115,7 +115,7 @@ public class ShootScript : MonoBehaviour
                     CanShoot = false;
                     ShootBullet();
                     _currentBullet = GameObject.Find("bullet(Clone)");
-                    _shotCooldown -= .3f;
+                    _shotCooldown -= .9f;
                     _currentShots -= 1;
                     print("Shot bullet");
                 }

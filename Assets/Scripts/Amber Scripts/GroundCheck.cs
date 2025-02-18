@@ -13,6 +13,10 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.tag == "BlockRemove")
         {
             _gameManager.Death = true;
+        } 
+        if (collision.gameObject.tag == "Death")
+        {
+            _gameManager.Death = true;
         }
     }
 

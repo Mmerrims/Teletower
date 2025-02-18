@@ -9,6 +9,7 @@ TagManager:
   - BlockRemove
   - BlockFreeze
   - Win
+  - Death
   layers:
   - Default
   - TransparentFX

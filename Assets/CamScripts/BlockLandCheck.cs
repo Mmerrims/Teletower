@@ -6,11 +6,19 @@ public class BlockLandCheck : MonoBehaviour
 {
     private GameObject _camera;
     private bool _firstHit = true;
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _camera = GameObject.Find("Main Camera");
+        audioManagerObject = GameObject.Find("Audio Manager");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,6 +27,7 @@ public class BlockLandCheck : MonoBehaviour
         {
             _camera.GetComponent<Animator>().Play("CameraShake");
             _firstHit = false;
+            audioManager.BlockPlace();
         }
     }
 }

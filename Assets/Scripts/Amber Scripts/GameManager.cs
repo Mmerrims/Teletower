@@ -25,12 +25,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _spawners;
     //[SerializeField] private GameObject BallChargedObject;
     //[SerializeField] private Animator _scrollAnimator;
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
+    private bool endState;
 
     private void Start()
     {
        // score = 0;
         //UpdateText();
         playing = true;
+
+        audioManagerObject = GameObject.Find("Audio Manager");
+        
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
+        audioManager.GameTheme();
+        endState = false;
     }
 
     //public void UpdateText()
@@ -51,13 +63,20 @@ public class GameManager : MonoBehaviour
 
         if (HeadCrush == true && GroundCrush == true || Death == true)
         {
-            playing = false;
-            _deathScreen.SetActive(true);
-            if (_playerMovement != null)
+            if (endState == false)
             {
-                _playerMovement.CanMove = false;
+                playing = false;
+                _deathScreen.SetActive(true);
+                if (_playerMovement != null)
+                {
+                    _playerMovement.CanMove = false;
+                }
+                _shootScript.EndShooting = true;
+                audioManager.BobDeath();
+                audioManager.BobDeathMusic();
+                audioManager.GameThemeEnd();
+                endState = true;
             }
-            _shootScript.EndShooting = true;
             //_scrollAnimator.SetBool("StopLose", true);
         }
 
@@ -68,13 +87,19 @@ public class GameManager : MonoBehaviour
 
         if (Win == true)
         {
-            playing = false;
-            _winScreen.SetActive(true);
-            if (_playerMovement != null)
+            if (endState == false)
             {
-                _playerMovement.CanMove = false;
+                playing = false;
+                _winScreen.SetActive(true);
+                if (_playerMovement != null)
+                {
+                    _playerMovement.CanMove = false;
+                }
+                _shootScript.EndShooting = true;
+                audioManager.Win();
+                audioManager.GameThemeEnd();
+                endState = true; 
             }
-            _shootScript.EndShooting = true;
            // _scrollAnimator.SetBool("StopWin", true);
         }
 

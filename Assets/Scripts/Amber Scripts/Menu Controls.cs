@@ -8,6 +8,7 @@ public class MenuControls : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenuObjects;
     [SerializeField] private GameObject ControlsObjects;
+    [SerializeField] private GameObject CreditsObject;
     public PlayerInput MPI;
     private InputAction back;
 
@@ -56,17 +57,20 @@ public class MenuControls : MonoBehaviour
     {
         MainMenuObjects.SetActive(false);
         ControlsObjects.SetActive(true);
+        CreditsObject.SetActive(false);
     }
 
     public void HideControls()
     {
         MainMenuObjects.SetActive(true);
         ControlsObjects.SetActive(false);
+        CreditsObject.SetActive(true);
     }
 
     public void Back(InputAction.CallbackContext obj)
     {
         MainMenuObjects.SetActive(true);
         ControlsObjects.SetActive(false);
+        CreditsObject.SetActive(true);
     }
 }

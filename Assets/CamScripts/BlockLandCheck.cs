@@ -26,8 +26,20 @@ public class BlockLandCheck : MonoBehaviour
         if (_firstHit && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BlockFreeze")))
         {
             _camera.GetComponent<Animator>().Play("CameraShake");
-            _firstHit = false;
             audioManager.BlockPlace();
+            _firstHit = false;
+            
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_firstHit && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BlockFreeze")))
+        {
+            _camera.GetComponent<Animator>().Play("CameraShake");
+            audioManager.BlockPlace();
+            _firstHit = false;
+
         }
     }
 }

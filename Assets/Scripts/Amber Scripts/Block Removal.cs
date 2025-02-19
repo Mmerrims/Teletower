@@ -17,10 +17,10 @@ public class BlockRemoval : MonoBehaviour
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
-        if (collision.gameObject.tag == "Ground")
-        {
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
+        //if (collision.gameObject.tag == "Ground")
+        //{
+        //    _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

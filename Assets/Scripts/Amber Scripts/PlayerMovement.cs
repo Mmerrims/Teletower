@@ -317,7 +317,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Restart(InputAction.CallbackContext obj)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("no restart for you hehehe");
     }
 
     public void Quit(InputAction.CallbackContext obj)
